@@ -1,0 +1,299 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  height: 100vh;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #1a1a1a;
+  border-right: 1px solid #333;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sidebar h2 {
+  font-size: 1.3rem;
+  color: #f97316;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar nav button {
+  background: none;
+  border: none;
+  color: #aaaaaa;
+  text-align: left;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.sidebar nav button:hover { background-color: #2a2a2a; color: #ffffff; }
+.sidebar nav button.active { background-color: #f97316; color: #ffffff; }
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-bottom: 1px solid #333;
+}
+
+.topbar h1 { font-size: 1.5rem; }
+
+.add-btn {
+  padding: 10px 20px;
+  background-color: #f97316;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.add-btn:hover { background-color: #ea6c0a; }
+
+.dashboard, .tasks-view { padding: 32px; }
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-card.done { border-color: #22c55e; }
+.stat-num { font-size: 2.5rem; font-weight: 700; color: #f97316; }
+.stat-card.done .stat-num { color: #22c55e; }
+.stat-card span:last-child { color: #aaaaaa; font-size: 0.9rem; }
+
+.dashboard h3, .tasks-view h3 { margin-bottom: 16px; color: #ffffff; }
+
+.task-list { display: flex; flex-direction: column; gap: 12px; }
+
+.task-row {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.2s;
+}
+
+.task-row:hover { border-color: #f97316; }
+.task-row strong { font-size: 0.95rem; }
+.task-row p { font-size: 0.85rem; color: #aaaaaa; margin-top: 4px; }
+
+.task-meta { display: flex; align-items: center; gap: 10px; }
+
+.priority {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.priority.high { background-color: #ef444420; color: #ef4444; }
+.priority.medium { background-color: #f9731620; color: #f97316; }
+.priority.low { background-color: #22c55e20; color: #22c55e; }
+
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #2a2a2a;
+  color: #aaaaaa;
+}
+
+.status.done { background-color: #22c55e20; color: #22c55e; }
+.status.in-progress { background-color: #3b82f620; color: #3b82f6; }
+.status.to-do { background-color: #f9731620; color: #f97316; }
+
+.deadline { font-size: 0.8rem; color: #666; margin-top: 4px; }
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.delete-btn:hover { opacity: 1; }
+
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-bar button {
+  padding: 8px 16px;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 20px;
+  color: #aaaaaa;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-bar button:hover { border-color: #f97316; color: #ffffff; }
+.filter-bar button.active { background-color: #f97316; border-color: #f97316; color: #ffffff; }
+
+.kanban {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 32px;
+  height: 100%;
+}
+
+.kanban-col {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kanban-col h3 {
+  font-size: 0.9rem;
+  color: #aaaaaa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #333;
+}
+
+.col-count {
+  background-color: #333;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.kanban-card {
+  background-color: #0f0f0f;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.2s;
+}
+
+.kanban-card:hover { border-color: #f97316; }
+.kanban-card strong { font-size: 0.9rem; }
+.kanban-card p { font-size: 0.8rem; color: #aaaaaa; }
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 32px;
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal h3 { font-size: 1.2rem; margin-bottom: 4px; }
+
+.modal input, .modal textarea, .modal select {
+  padding: 12px;
+  background-color: #0f0f0f;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.modal input:focus, .modal textarea:focus, .modal select:focus {
+  outline: none;
+  border-color: #f97316;
+}
+
+.modal select option { background-color: #1a1a1a; }
+
+.modal-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.modal-btns button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #f97316 !important;
+  border-color: #f97316 !important;
+  font-weight: 600;
+}
